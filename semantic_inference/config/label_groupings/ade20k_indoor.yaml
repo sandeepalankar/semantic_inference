@@ -27,6 +27,7 @@ groups:
   - {name: Deformable, labels: [82, 93, 132]}
   - {name: Dynamic_NonHuman, labels: [127]}
   - {name: Human, labels: [13]}
+  - {name: Building, labels: [21]}
 specified_colors:
   - {name: Floor, source: raw, color: [0.75, 0.75, 0.71]}
   - {name: Wall, source: raw, color: [0.0, 0.4, 0.2]}
