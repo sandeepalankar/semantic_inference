@@ -122,7 +122,10 @@ SegmentationNode::SegmentationNode(const rclcpp::NodeOptions& options)
       [](const auto& msg) { return msg->header.stamp; });
 
   sub_.registerCallback(&ImageWorker::addMessage, worker_.get());
-  sub_.subscribe("color/image_raw");
+  rclcpp::QoS qos(rclcpp::KeepLast(1));
+  qos.reliability(rclcpp::ReliabilityPolicy::BestEffort);
+  qos.durability(rclcpp::DurabilityPolicy::Volatile);
+  sub_.subscribe("color/image_raw", qos);
 }
 
 SegmentationNode::~SegmentationNode() {
